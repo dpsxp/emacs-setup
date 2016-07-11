@@ -5,6 +5,7 @@
 
 (defvar my-packages
   '(evil better-defaults js2-mode emmet-mode
+         base16-theme babel-repl js-doc
          monokai-theme helm flycheck powerline-evil
          web-mode json-mode scss-mode magit ensime
          flx-ido company company-tern projectile 
