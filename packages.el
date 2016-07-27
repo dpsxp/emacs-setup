@@ -7,7 +7,7 @@
   '(projectile evil better-defaults helm
          magit helm-projectile powerline-evil
          monokai-theme flycheck 
-         js-mode emmet-mode flx-ido 
+         emmet-mode flx-ido 
          web-mode json-mode scss-mode 
          company company-tern base16-theme
          editorconfig markdown-mode))
