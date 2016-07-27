@@ -4,12 +4,13 @@
 (package-initialize)
 
 (defvar my-packages
-  '(evil better-defaults js2-mode emmet-mode
-         base16-theme babel-repl js-doc
-         monokai-theme helm flycheck powerline-evil
-         web-mode json-mode scss-mode magit ensime
-         flx-ido company company-tern projectile 
-         editorconfig ))
+  '(projectile evil better-defaults helm
+         magit helm-projectile powerline-evil
+         monokai-theme flycheck 
+         js-mode emmet-mode flx-ido 
+         web-mode json-mode scss-mode 
+         company company-tern base16-theme
+         editorconfig markdown-mode))
 
 (defun prelude-packages ()
   (let ((all-packages 20))
