@@ -6,7 +6,7 @@
 (defvar my-packages
   '(projectile evil better-defaults helm
          magit helm-projectile powerline-evil
-         monokai-theme flycheck 
+         monokai-theme flycheck evil-multiedit
          emmet-mode flx-ido yasnippet
          web-mode json-mode scss-mode 
          company company-tern base16-theme
