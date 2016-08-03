@@ -73,6 +73,9 @@
 (yas-reload-all)
 (add-hook 'prog-mode-hook 'yas-minor-mode)
 
+;;; Evil multiedit
+(require 'evil-multiedit)
+(evil-multiedit-default-keybinds)
 
 (provide 'init.el)
 ;;; init.el ends here
