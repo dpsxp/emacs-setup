@@ -29,11 +29,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (monokai)))
  '(custom-safe-themes
    (quote
-    ("b6db49cec08652adf1ff2341ce32c7303be313b0de38c621676122f255ee46db" "c567c85efdb584afa78a1e45a6ca475f5b55f642dfcd6277050043a568d1ac6f" default)))
+    ("3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" "85d609b07346d3220e7da1e0b87f66d11b2eeddad945cac775e80d2c1adb0066" default)))
  '(inhibit-startup-screen t))
+
+(setq-default cursor-type '(hbar . 1))
 
 (provide 'init.el)
 ;;; init.el ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
