@@ -50,6 +50,6 @@
 (set-keyboard-coding-system 'utf-8)
 (setq default-input-method "latin-1-prefix")
 (defun my-set-default-input-method ()
-  (set-input-method 'latin-1-prefix)
+  (set-input-method 'latin-1-prefix))
 (add-hook 'text-mode-hook 'my-set-default-input-method)
 
