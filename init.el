@@ -34,11 +34,8 @@
     ("3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" "85d609b07346d3220e7da1e0b87f66d11b2eeddad945cac775e80d2c1adb0066" default)))
  '(inhibit-startup-screen t))
 
+(set-face-attribute 'default nil :height 150)
+(set-frame-font "monaco")
+
 (provide 'init.el)
 ;;; init.el ends here
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
