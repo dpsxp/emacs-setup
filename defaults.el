@@ -2,7 +2,7 @@
 (set-keyboard-coding-system 'utf-8)
 
 (require 'powerline)
-(powerline-default-theme)
+(powerline-vim-theme)
 
 (require 'flx-ido)
 (ido-mode 1)

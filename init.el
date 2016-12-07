@@ -12,6 +12,7 @@
 (load-file "~/.emacs.d/find-file-in-project.el")
 (load-file "~/.emacs.d/bindings.el")
 (load-file "~/.emacs.d/defaults.el")
+(load-file "~/.emacs.d/clipboard.el")
 
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell (replace-regexp-in-string
@@ -35,7 +36,7 @@
  '(inhibit-startup-screen t))
 
 (set-face-attribute 'default nil :height 150)
-(set-frame-font "monaco")
+;;;(set-frame-font "monaco")
 
 (provide 'init.el)
 ;;; init.el ends here
