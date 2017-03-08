@@ -36,7 +36,7 @@
 (add-hook 'emacs-startup-hook '(lambda() (evil-mode 1)))
 
 ;;; Default theme
-(add-hook 'after-init-hook '(lambda() (load-theme 'base16-tomorrow-night)))
+(add-hook 'after-init-hook '(lambda() (load-theme 'base16-default-dark)))
 
 ;;; Elixir
 (add-hook 'elixir-mode-hook '(lambda() (alchemist-mode 1)))
