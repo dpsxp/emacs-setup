@@ -4,16 +4,25 @@
 (package-initialize)
 
 (defvar my-packages
-  '(projectile evil better-defaults helm
-         magit helm-projectile powerline-evil
-         monokai-theme flycheck evil-multiedit
-         emmet-mode flx-ido yasnippet alchemist
-         web-mode json-mode scss-mode 
-         company company-tern base16-theme
-         editorconfig markdown-mode))
+  '(
+    ;;; Defaults
+    evil better-defaults helm flx-ido editorconfig
+    ;;; Git
+    magit
+    ;;; Sintax and snippets
+    flycheck yasnippet
+    ;;; Project
+    helm-projectile projectile
+    ;;; Modes
+    emmet-mode web-mode json-mode
+    scss-mode rjsx-mode markdown-mode
+    ;;; Themes
+    monokai-theme arjen-grey-theme
+    ;;; Autocompletes
+    company company-tern))
 
 (defun prelude-packages ()
-  (let ((all-packages 20))
+  (let ((all-packages 30))
     (dolist (p my-packages)
       (when (not (package-installed-p p))
         (setq all-packages nil)))

@@ -5,7 +5,7 @@
 (setq-default flycheck-disabled-checkers
   (append flycheck-disabled-checkers '(javascript-jshint)))
 
-(flycheck-add-mode 'javascript-eslint 'js-mode)
+(flycheck-add-mode 'javascript-eslint 'rjsx-mode)
 (setq-default flycheck-temp-prefix ".flycheck")
 
 ;;; Helper to always get eslint per project
@@ -25,16 +25,12 @@
 (add-hook 'after-init-hook 'global-flycheck-mode)
 
 ;;; JS Modes
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
 
 ;;; TernJS
 (require 'company)
-(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+(add-hook 'rjsx-mode-hook (lambda () (tern-mode t)))
+(add-hook 'rjsx-mode-hook (lambda () (js2-mode-hide-warnings-and-errors)))
 (add-to-list 'company-backends 'company-tern)
-
-(require 'comint)
-(add-to-list 'comint-preoutput-filter-functions
-             (lambda (output)
-               (replace-regexp-in-string "\033\\[[0-9]+[A-Z]" "" output)))

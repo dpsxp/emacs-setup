@@ -1,9 +1,6 @@
 ;;; Package defaults
 (set-keyboard-coding-system 'utf-8)
 
-(require 'powerline)
-(powerline-vim-theme)
-
 (require 'flx-ido)
 (ido-mode 1)
 (ido-everywhere 1)
@@ -17,7 +14,7 @@
 (yas-reload-all)
 (add-hook 'prog-mode-hook 'yas-minor-mode)
 
-;;; editoconfig
+;;; editorconfig
 (require 'editorconfig)
 (editorconfig-mode 1)
 
@@ -27,7 +24,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-;;; Global models
+;;; Global modes
 (add-hook 'prog-mode-hook '(lambda() (company-mode 1)))
 (add-hook 'prog-mode-hook '(lambda() (linum-mode 1)))
 (add-hook 'web-mode-hook '(lambda() (linum-mode 1)))
@@ -36,10 +33,9 @@
 (add-hook 'emacs-startup-hook '(lambda() (evil-mode 1)))
 
 ;;; Default theme
-(add-hook 'after-init-hook '(lambda() (load-theme 'base16-default-dark)))
-
-;;; Elixir
-(add-hook 'elixir-mode-hook '(lambda() (alchemist-mode 1)))
+(if (display-graphic-p)
+  (load-theme 'arjen-grey)
+    (load-theme 'monokai))
 
 (setq-default cursor-type '(hbar . 1))
 
