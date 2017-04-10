@@ -34,8 +34,8 @@
 
 ;;; Default theme
 (if (display-graphic-p)
-  (load-theme 'arjen-grey)
-    (load-theme 'monokai))
+  (load-theme 'base16-tomorrow-night t)
+    (load-theme 'monokai t))
 
 (setq-default cursor-type '(hbar . 1))
 
@@ -49,3 +49,7 @@
   (set-input-method 'latin-1-prefix))
 (add-hook 'text-mode-hook 'my-set-default-input-method)
 
+;;; Magithub
+(use-package magithub
+  :after magit
+  :config (magithub-feature-autoinject t))

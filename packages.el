@@ -17,7 +17,7 @@
     emmet-mode web-mode json-mode
     scss-mode rjsx-mode markdown-mode
     ;;; Themes
-    monokai-theme arjen-grey-theme
+    monokai-theme arjen-grey-theme base16-theme
     ;;; Autocompletes
     company company-tern))
 
