@@ -6,26 +6,7 @@
 
 ;;; Code:
 
-(require 'flycheck)
-(require 'web-mode)
-(require 'flycheck-flow)
-(require 'company)
-(require 'emmet-mode)
-(require 'js2-mode)
-(require 'yasnippet)
-(require 'jasminejs-mode)
-
-;; Use only ESlint as JS checker
-(setq-default flycheck-disabled-checkers
-              (append flycheck-disabled-checkers '(javascript-jshint)))
-
-;;; Flycheck config
-(setq-default flycheck-temp-prefix ".flycheck")
-(flycheck-add-mode 'javascript-eslint 'web-mode)
-(flycheck-add-mode 'javascript-flow 'web-mode)
-(flycheck-add-mode 'javascript-flow-coverage 'web-mode)
-(flycheck-add-next-checker 'javascript-flow 'javascript-flow-coverage)
-
+;;; Helper functions::
 (defun use-eslint-from-node-modules ()
   "Helper to always get eslint per project."
   (let* ((root (locate-dominating-file
@@ -56,27 +37,46 @@
   ;;; tern-mode for autocomplete
   (tern-mode))
 
-(defun dpaulino/setup-jasmine-mode ()
-  "Setup jasmine mode for better test files."
-  (jasminejs-add-snippets-to-yas-snippet-dirs))
+;;; Package declarations
+(use-package company)
 
-;;; Configure ESlint for projects
-(add-hook 'flycheck-mode-hook 'use-eslint-from-node-modules)
+(use-package emmet-mode)
 
-;;; Flycheck mode
-(add-hook 'after-init-hook 'global-flycheck-mode)
-(add-hook 'jasminejs-mode-hook 'dpaulino/setup-jasmine-mode)
-(add-hook 'js2-mode-hook 'dpaulino/setup-js-mode)
-(add-hook 'web-mode-hook 'dpaulino/setup-jsx-mode)
+(use-package js2-refactor)
 
-;;; JS Modes hooks
-(add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(use-package flycheck
+  :ensure t
+  :init
+    (use-eslint-from-node-modules)
+  :config
+    (setq-default flycheck-temp-prefix ".flycheck")
+    (add-hook 'prog-mode-hook 'global-flycheck-mode))
 
-;;; JS autocompletes
-(add-to-list 'company-backends 'company-tern)
-(add-to-list 'company-backends 'company-flow)
+(use-package company-tern
+  :defer t)
+
+(use-package tern
+  :init
+    (add-to-list 'company-backends 'company-tern))
+
+(use-package json-mode
+  :mode "\\.json\\'")
+
+(use-package web-mode
+  :mode "\\.jsx\\'"
+  :config
+    (dpaulino/setup-jsx-mode))
+
+(use-package js2-mode
+  :mode "\\.js\\'"
+  :config
+    ;;; Use only ESlint as JS checker
+    (setq-default flycheck-disabled-checkers
+        (append flycheck-disabled-checkers '(javascript-jshint)))
+
+    ;;; Flycheck config
+    (flycheck-add-mode 'javascript-eslint 'web-mode)
+    (dpaulino/setup-js-mode))
 
 (provide 'javascript.el)
 ;;; javascript.el ends here

@@ -1,23 +1,8 @@
 ;;; Package defaults
-(set-keyboard-coding-system 'utf-8)
-(require 'better-defaults)
 
-(require 'flx-ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-
-;; disable ido faces to see flx highlights.
-(setq ido-enable-flex-matching t)
-(setq ido-use-faces nil)
-
-(require 'yasnippet)
-(yas-reload-all)
-(add-hook 'prog-mode-hook 'yas-minor-mode)
-
-;;; editorconfig
-(require 'editorconfig)
-(editorconfig-mode 1)
+;;; Global modes
+(add-hook 'prog-mode-hook '(lambda() (linum-mode 1)))
+(add-hook 'before-save-hook '(lambda() (whitespace-cleanup)))
 
 ;;; Backup dir
 (setq backup-directory-alist
@@ -25,27 +10,45 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-;;; Global modes
-(add-hook 'prog-mode-hook '(lambda() (company-mode 1)))
-(add-hook 'prog-mode-hook '(lambda() (linum-mode 1)))
-(add-hook 'web-mode-hook '(lambda() (linum-mode 1)))
-(add-hook 'before-save-hook '(lambda() (whitespace-cleanup)))
+(use-package better-defaults)
 
-;;; Evil mode !!!
-(add-hook 'emacs-startup-hook '(lambda() (evil-mode 1)))
+(use-package ido
+  :init
+    (ido-mode 1)
+    (ido-everywhere 1)
+  :config
+  ;; disable ido faces to see flx highlights.
+  (setq ido-enable-flex-matching t)
+  (setq ido-use-faces nil))
 
-;;; Default theme
-(load-theme 'arjen-grey t)
+(use-package flx-ido
+  :init
+  (flx-ido-mode 1))
+
+;;; editorconfig
+(use-package editorconfig
+  :init
+  (editorconfig-mode 1))
 
 (setq-default cursor-type '(hbar . 1))
 
-;;; Keyboards
-(prefer-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(setq default-input-method "latin-1-prefix")
-(defun my-set-default-input-method ()
-  (set-input-method 'latin-1-prefix))
-(add-hook 'text-mode-hook 'my-set-default-input-method)
+(use-package company-mode
+  :init
+    (add-hook 'prog-mode-hook '(lambda() (company-mode 1))))
 
+;;; Evil mode !!!
+(use-package evil
+  :init
+  (evil-mode 1))
+
+;;; Default theme
+(use-package arjen-grey-theme
+  :if window-system
+  :init
+  (load-theme 'arjen-grey t))
+
+;;; Set PATH from shell
+(use-package exec-path-from-shell
+  :if window-system
+  :config
+    (exec-path-from-shell-initialize))

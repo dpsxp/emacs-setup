@@ -10,7 +10,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
+;;;(package-initialize)
 
 (load-file "~/.emacs.d/packages.el")
 (load-file "~/.emacs.d/javascript.el")
@@ -18,22 +18,12 @@
 (load-file "~/.emacs.d/find-file-in-project.el")
 (load-file "~/.emacs.d/bindings.el")
 (load-file "~/.emacs.d/defaults.el")
-(load-file "~/.emacs.d/clipboard.el")
+(load-file "~/.emacs.d/keyboards.el")
 (load-file "~/.emacs.d/git.el")
 (load-file "~/.emacs.d/elixir.el")
 
-(defun set-exec-path-from-shell-PATH ()
-  (let ((path-from-shell (replace-regexp-in-string
-                          "[ \t\n]*$"
-                          ""
-                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setq eshell-path-env path-from-shell) ; for eshell users
-    (setq exec-path (split-string path-from-shell path-separator))))
-
-(when window-system (set-exec-path-from-shell-PATH))
 (set-face-attribute 'default nil :height 160)
-(set-frame-font "Monaco")
+(set-frame-font "Ubuntu Mono")
 
 (provide 'init.el)
 (custom-set-variables
@@ -51,7 +41,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (alchemist web-mode scss-mode monokai-theme markdown-mode magit json-mode js2-refactor jasminejs-mode helm-projectile flycheck-flow flx-ido evil emmet-mode editorconfig company-tern company-flow better-defaults base16-theme arjen-grey-theme))))
+    (helm arjen-grey company-mode company web tern flycheck emmet js2-mode alchemist web-mode scss-mode monokai-theme markdown-mode magit json-mode js2-refactor jasminejs-mode helm-projectile flycheck-flow flx-ido evil emmet-mode editorconfig company-tern company-flow better-defaults base16-theme arjen-grey-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
