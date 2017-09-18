@@ -9,7 +9,8 @@
 
 (require 'use-package)
 
-(setq use-package-always-ensure t)
+;; Uncomment to install all the packages used
+;; (setq use-package-always-ensure t)
 
 (provide 'packages)
 ;;; packages.el ends here
