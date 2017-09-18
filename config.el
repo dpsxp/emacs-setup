@@ -19,7 +19,7 @@
 (load-file "~/.emacs.d/ivy-config.el")
 
 ;;; Helm configs
-(load-file "~/.emacs.d/helm-config.el")
+;;; (load-file "~/.emacs.d/helm-config.el")
 
 
 ;;; Language configurations
