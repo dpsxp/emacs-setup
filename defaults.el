@@ -14,8 +14,8 @@
 
 (use-package ido
   :init
-    (ido-mode 1)
-    (ido-everywhere 1)
+    (ido-mode t)
+    (ido-everywhere t)
   :config
   ;; disable ido faces to see flx highlights.
   (setq ido-enable-flex-matching t)
@@ -23,12 +23,12 @@
 
 (use-package flx-ido
   :init
-  (flx-ido-mode 1))
+  (flx-ido-mode t))
 
 ;;; editorconfig
 (use-package editorconfig
   :init
-  (editorconfig-mode 1))
+  (editorconfig-mode t))
 
 (setq-default cursor-type '(hbar . 1))
 
@@ -39,7 +39,7 @@
 ;;; Evil mode !!!
 (use-package evil
   :init
-  (evil-mode 1))
+  (evil-mode t))
 
 ;;; Default theme
 (use-package doom-themes
