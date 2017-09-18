@@ -9,5 +9,5 @@
   :bind
   (("M-x" . helm-M-x)))
 
-(provide 'bindings.el)
-;;; bindings.el ends here
+(provide 'helm-config.el)
+;;; helm-config ends here

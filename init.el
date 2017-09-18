@@ -5,25 +5,7 @@
 ;;; Emacs basic setup
 
 ;;; Code:
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-;;;(package-initialize)
-
-(load-file "~/.emacs.d/packages.el")
-(load-file "~/.emacs.d/javascript.el")
-(load-file "~/.emacs.d/css.el")
-(load-file "~/.emacs.d/find-file-in-project.el")
-(load-file "~/.emacs.d/bindings.el")
-(load-file "~/.emacs.d/defaults.el")
-(load-file "~/.emacs.d/keyboards.el")
-(load-file "~/.emacs.d/git.el")
-(load-file "~/.emacs.d/elixir.el")
-
-(set-face-attribute 'default nil :height 160)
-(set-frame-font "Ubuntu Mono")
+(load-file "~/.emacs.d/config.el")
 
 (provide 'init.el)
 (custom-set-variables

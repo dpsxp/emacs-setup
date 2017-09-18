@@ -41,12 +41,6 @@
   :init
   (evil-mode t))
 
-;;; Default theme
-(use-package doom-themes
-  :if window-system
-  :init
-  (load-theme 'doom-tomorrow-night t))
-
 ;;; Set PATH from shell
 (use-package exec-path-from-shell
   :if window-system
