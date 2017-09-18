@@ -42,10 +42,10 @@
   (evil-mode 1))
 
 ;;; Default theme
-(use-package arjen-grey-theme
+(use-package doom-themes
   :if window-system
   :init
-  (load-theme 'arjen-grey t))
+  (load-theme 'doom-tomorrow-night t))
 
 ;;; Set PATH from shell
 (use-package exec-path-from-shell
