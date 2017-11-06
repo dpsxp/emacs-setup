@@ -11,7 +11,7 @@
 
 ;;; Default font
 (set-face-attribute 'default nil :height 160)
-(set-frame-font "Ubuntu Mono")
+(set-frame-font "Hack")
 
 
 (provide 'ui.el)
