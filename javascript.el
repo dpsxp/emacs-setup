@@ -20,6 +20,7 @@
 
 (defun dpaulino/setup-js-mode ()
   "Better js2-mode options."
+  (tern-mode t)
   ;;; Disable warnings leave it for flycheck
   (js2-mode-hide-warnings-and-errors)
   ;;; Add js2-refactor mode for nice refactoring
@@ -35,25 +36,20 @@
   ;;; web-mode jsx
   (web-mode-set-content-type "jsx")
   ;;; tern-mode for autocomplete
-  (tern-mode))
-
-;;; Package declarations
-(use-package company)
+  (tern-mode t))
 
 (use-package emmet-mode)
 
 (use-package js2-refactor)
 
 (use-package flycheck
-  :ensure t
   :init
     (use-eslint-from-node-modules)
   :config
     (setq-default flycheck-temp-prefix ".flycheck")
     (add-hook 'prog-mode-hook 'global-flycheck-mode))
 
-(use-package company-tern
-  :defer t)
+(use-package company-tern)
 
 (use-package tern
   :init
@@ -62,11 +58,6 @@
 (use-package json-mode
   :mode "\\.json\\'")
 
-(use-package web-mode
-  :mode "\\.jsx\\'"
-  :config
-    (dpaulino/setup-jsx-mode))
-
 (use-package js2-mode
   :mode "\\.js\\'"
   :config
@@ -74,9 +65,10 @@
     (setq-default flycheck-disabled-checkers
         (append flycheck-disabled-checkers '(javascript-jshint)))
 
+    (add-hook 'js2-jsx-mode-hook #'dpaulino/setup-jsx-mode)
+    (add-hook 'js2-mode-hook #'dpaulino/setup-js-mode)
     ;;; Flycheck config
-    (flycheck-add-mode 'javascript-eslint 'web-mode)
-    (dpaulino/setup-js-mode))
+    (flycheck-add-mode 'javascript-eslint 'web-mode))
 
 (provide 'javascript.el)
 ;;; javascript.el ends here

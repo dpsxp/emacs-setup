@@ -32,7 +32,7 @@
 
 (setq-default cursor-type '(hbar . 1))
 
-(use-package company-mode
+(use-package company
   :init
     (add-hook 'prog-mode-hook '(lambda() (company-mode 1))))
 
@@ -40,6 +40,9 @@
 (use-package evil
   :init
   (evil-mode t))
+
+;;; yasnippets
+(use-package yasnippet-snippets)
 
 ;;; Set PATH from shell
 (use-package exec-path-from-shell
