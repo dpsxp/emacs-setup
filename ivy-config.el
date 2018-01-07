@@ -22,7 +22,9 @@
   :config
     (ivy-mode t)
     (setq ivy-use-virtual-buffers t)
-    (setq enable-recursive-minibuffers t))
+    (setq enable-recursive-minibuffers t)
+    (setq ivy-re-builders-alist
+        '((t . ivy--regex-plus))))
 
 (provide 'ivy-confg)
 ;;; ivy-config.el ends here
