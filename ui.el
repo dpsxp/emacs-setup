@@ -9,8 +9,13 @@
   :init
   (load-theme 'doom-tomorrow-night t))
 
+(use-package dracula-theme
+   :if (not (window-system))
+   :init
+   (load-theme 'dracula t))
+
 ;;; Default font
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 140)
 (set-frame-font "Hack")
 
 
