@@ -19,6 +19,12 @@
     (when (and eslint (file-executable-p eslint))
       (setq-local flycheck-javascript-eslint-executable eslint))))
 
+
+(defun dpaulino/setup-js-doc-mode ()
+  "Keybinding for js-doc-mode."
+  (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc)
+  (define-key js2-mode-map "@" 'js-doc-insert-tag))
+
 (defun dpaulino/setup-js-mode ()
   "Better js2-mode options."
   (tern-mode t)
@@ -68,6 +74,7 @@
 
     (add-hook 'js2-jsx-mode-hook #'dpaulino/setup-jsx-mode)
     (add-hook 'js2-mode-hook #'dpaulino/setup-js-mode)
+    (add-hook 'js2-mode-hook #'dpaulino/setup-js-doc-mode)
     ;;; Flycheck config
     (flycheck-add-mode 'javascript-eslint 'web-mode))
 
