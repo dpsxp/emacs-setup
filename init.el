@@ -13,6 +13,7 @@
 (package-initialize)
 
 (load-file "~/.emacs.d/config.el")
+(load-file "~/js-doc/js-doc.el")
 
 (provide 'init.el)
 (custom-set-variables

@@ -1,0 +1,3 @@
+[submodule "js-doc"]
+	path = js-doc
+	url = git@github.com:dpsxp/js-doc.git

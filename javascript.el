@@ -5,6 +5,7 @@
 ;;; Javascript configurations
 
 ;;; Code:
+(load-file "./js-doc/js-doc.el")
 
 ;;; Helper functions::
 (defun use-eslint-from-node-modules ()
