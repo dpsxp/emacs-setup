@@ -3,6 +3,7 @@
 ;;; Global modes
 (add-hook 'prog-mode-hook '(lambda() (linum-mode 1)))
 (add-hook 'before-save-hook '(lambda() (whitespace-cleanup)))
+(windmove-default-keybindings)
 
 ;;; Backup dir
 (setq backup-directory-alist
