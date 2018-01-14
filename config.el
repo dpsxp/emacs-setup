@@ -4,6 +4,7 @@
 
 ;;; Code:
 ;;; Package configurations
+
 (load-file "~/.emacs.d/packages.el")
 
 ;;; Default settings
@@ -21,11 +22,24 @@
 ;;; Helm configs
 ;;; (load-file "~/.emacs.d/helm-config.el")
 
+(defun dpaulino/should-load (exs)
+  (seq-find
+    '(lambda (ext)
+      (and buffer-file-name (string-equal (file-name-extension buffer-file-name) ext)))
+    exs))
 
-;;; Language configurations
-(load-file "~/.emacs.d/elixir.el")
-(load-file "~/.emacs.d/javascript.el")
-(load-file "~/.emacs.d/css.el")
+(defun dpaulino/extension-loading ()
+  ;;; Language configurations
+  (if (dpaulino/should-load '("exs" "ex"))
+    (load-file "~/.emacs.d/elixir.el"))
+
+  (if (dpaulino/should-load '("js" "jsx"))
+    (load-file "~/.emacs.d/javascript.el"))
+
+  (if (dpaulino/should-load '("css" "scss"))
+    (load-file "~/.emacs.d/css.el")))
+
+(add-hook 'change-major-mode-hook 'dpaulino/extension-loading)
 
 (provide 'config.el)
 ;;; config ends here
