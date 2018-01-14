@@ -5,7 +5,7 @@
 ;;; Javascript configurations
 
 ;;; Code:
-(load-file "./js-doc/js-doc.el")
+(load-file "~/.emacs.d/js-doc/js-doc.el")
 
 ;;; Helper functions::
 (defun use-eslint-from-node-modules ()
