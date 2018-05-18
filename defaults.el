@@ -4,6 +4,7 @@
 (add-hook 'prog-mode-hook '(lambda() (linum-mode 1)))
 (add-hook 'before-save-hook '(lambda() (whitespace-cleanup)))
 (windmove-default-keybindings)
+(setq enable-local-variables :all)
 
 ;;; Backup dir
 (setq backup-directory-alist
