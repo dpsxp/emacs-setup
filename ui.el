@@ -14,10 +14,14 @@
    :init
    (load-theme 'dracula t))
 
-;;; Default font
-(set-face-attribute 'default nil :height 140)
-(set-frame-font "Hack")
+(use-package emojify
+  :if window-system
+  :init
+  (global-emojify-mode))
 
+;;; Default font
+(set-face-attribute 'default nil :height 160)
+(set-frame-font "Hack")
 
 (provide 'ui.el)
 ;;; ui ends here
