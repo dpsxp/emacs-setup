@@ -33,50 +33,40 @@
   ;;; Add js2-refactor mode for nice refactoring
   (js2-refactor-mode))
 
-(defun dpaulino/setup-jsx-mode ()
-  "Make Emacs work better with JSX most ideas from spacemacs."
-  ;;; Setups emmet mode
-  (emmet-mode)
-  (setq-local emmet-expand-jsx-className? t)
-  ;;; Js Snippets
-  (yas-activate-extra-mode 'js-mode)
-  ;;; web-mode jsx
-  (web-mode-set-content-type "jsx")
-  ;;; tern-mode for autocomplete
-  (tern-mode t))
-
 (use-package emmet-mode)
 
 (use-package js2-refactor)
 
 (use-package flycheck
   :init
-    (use-eslint-from-node-modules)
+  (use-eslint-from-node-modules)
   :config
-    (setq-default flycheck-temp-prefix ".flycheck")
-    (add-hook 'prog-mode-hook 'global-flycheck-mode))
+  (setq-default flycheck-temp-prefix ".flycheck")
+  (add-hook 'prog-mode-hook 'global-flycheck-mode))
 
 (use-package company-tern)
 
 (use-package tern
   :init
-    (add-to-list 'company-backends 'company-tern))
+  (add-to-list 'company-backends 'company-tern))
 
 (use-package json-mode
   :mode "\\.json\\'")
+
+(use-package rjsx-mode
+  :mode "\\.jsx\\'")
 
 (use-package js2-mode
   :mode "\\.js\\'"
   :config
     ;;; Use only ESlint as JS checker
-    (setq-default flycheck-disabled-checkers
-        (append flycheck-disabled-checkers '(javascript-jshint)))
+  (setq-default flycheck-disabled-checkers
+                (append flycheck-disabled-checkers '(javascript-jshint)))
 
-    (add-hook 'js2-jsx-mode-hook #'dpaulino/setup-jsx-mode)
-    (add-hook 'js2-mode-hook #'dpaulino/setup-js-mode)
-    (add-hook 'js2-mode-hook #'dpaulino/setup-js-doc-mode)
+  (add-hook 'js2-mode-hook #'dpaulino/setup-js-mode)
+  (add-hook 'js2-mode-hook #'dpaulino/setup-js-doc-mode)
     ;;; Flycheck config
-    (flycheck-add-mode 'javascript-eslint 'web-mode))
+  (flycheck-add-mode 'javascript-eslint 'web-mode))
 
 (provide 'javascript.el)
 ;;; javascript.el ends here
