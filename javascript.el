@@ -48,7 +48,11 @@
 
 (use-package tern
   :init
-  (add-to-list 'company-backends 'company-tern))
+  (add-hook 'js-mode-hook 'company-tern))
+
+(use-package prettier-js
+  :init
+  (add-to-list 'js-mode-hook 'prettier-js-mode))
 
 (use-package json-mode
   :mode "\\.json\\'")
@@ -63,8 +67,8 @@
   (setq-default flycheck-disabled-checkers
                 (append flycheck-disabled-checkers '(javascript-jshint)))
 
-  (add-hook 'js2-mode-hook #'dpaulino/setup-js-mode)
-  (add-hook 'js2-mode-hook #'dpaulino/setup-js-doc-mode)
+  (add-hook 'js-mode-hook #'dpaulino/setup-js-mode)
+  (add-hook 'js-mode-hook #'dpaulino/setup-js-doc-mode)
     ;;; Flycheck config
   (flycheck-add-mode 'javascript-eslint 'web-mode))
 
