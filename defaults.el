@@ -39,6 +39,10 @@
     (add-hook 'prog-mode-hook '(lambda() (company-mode 1))))
 
 ;;; Evil mode !!!
+(use-package evil-surround
+  :init
+  (global-evil-surround-mode 1))
+
 (use-package evil
   :init
   (evil-mode t))

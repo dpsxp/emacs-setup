@@ -30,7 +30,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (emojify markdown-mode+ yaml-mode rjsx-:mode rjsx-mode coffee-mode helm arjen-grey company-mode company web tern flycheck emmet js2-mode alchemist web-mode scss-mode monokai-theme markdown-mode magit json-mode js2-refactor jasminejs-mode helm-projectile flycheck-flow flx-ido evil emmet-mode editorconfig company-tern company-flow better-defaults base16-theme arjen-grey-theme))))
+    (evil-surround prettier-js emojify markdown-mode+ yaml-mode rjsx-:mode rjsx-mode coffee-mode helm arjen-grey company-mode company web tern flycheck emmet js2-mode alchemist web-mode scss-mode monokai-theme markdown-mode magit json-mode js2-refactor jasminejs-mode helm-projectile flycheck-flow flx-ido evil emmet-mode editorconfig company-tern company-flow better-defaults base16-theme arjen-grey-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
