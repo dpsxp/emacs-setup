@@ -35,6 +35,8 @@
 (setq-default cursor-type '(hbar . 1))
 
 (use-package company
+  :config
+    (setq company-dabbrev-downcase nil)
   :init
     (add-hook 'prog-mode-hook '(lambda() (company-mode 1))))
 
